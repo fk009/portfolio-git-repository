@@ -68,19 +68,19 @@ https://youtu.be/VFyMmJAuYok
 # 参考資料
 参考にしたWebページなどです。
 
-- 【Python/pydub】mp3、wavファイルの分割（無音部分で区切る）
+- 【Python/pydub】mp3、wavファイルの分割（無音部分で区切る）  
 https://algorithm.joho.info/programming/python/pydub-split-on-silence/
 
-- Pythonで音声からテキストへ変換【SpeechRecognition】
+- Pythonで音声からテキストへ変換【SpeechRecognition】  
 https://self-development.info/python%E3%81%A7%E9%9F%B3%E5%A3%B0%E3%81%8B%E3%82%89%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%B8%E5%A4%89%E6%8F%9B%E3%80%90speechrecognition%E3%80%91/
 
-- どん底から這い上がるまでの記録  Bag of Wordsについて書いてみる
+- どん底から這い上がるまでの記録  Bag of Wordsについて書いてみる  
 https://www.pytry3g.com/entry/2018/03/21/181514
 
-- 【Python/tkinter】ウィジェットの配置(pack) 
+- 【Python/tkinter】ウィジェットの配置(pack)   
 https://imagingsolution.net/program/python/tkinter/widget_layout_pack/
 
-- ［文章生成］MeCabをインストールして分かち書きを試してみよう
+- ［文章生成］MeCabをインストールして分かち書きを試してみよう  
 https://atmarkit.itmedia.co.jp/ait/articles/2102/05/news027.html
 
 
