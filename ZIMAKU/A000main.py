@@ -1,5 +1,4 @@
 
-
 import tkinter
 from tkinter import messagebox
 from tkinter import filedialog #　ファイル参照
