@@ -1,9 +1,10 @@
 
-
+import os
+import sys
 
 # 自分のディレクトリを把握
 def DIRECTRY_F():
-    MY_DIR = __file__.split("\\")
+    MY_DIR = os.path.abspath(sys.argv[0]).split("\\")
     MY_DIRECTRY =  [MY_DIR[n] for n in range(len(MY_DIR) - 1)]
     MY_DIRECTRY = "/".join(MY_DIRECTRY) + "/"
     return MY_DIRECTRY
