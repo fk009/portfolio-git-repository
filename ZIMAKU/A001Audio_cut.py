@@ -8,6 +8,7 @@ import shutil
 import sys
 import math
 
+from ZIMAKU import A006Setting
 
 from ZIMAKU.A010Parts import DIRECTRY_F
 MY_DIRECTRY = DIRECTRY_F()
@@ -26,9 +27,18 @@ Timingtext_path = MY_DIRECTRY + 'text_folder/timing.txt'
 
 #-----------------------------------------------------
 
+# TODO
+# セッティングtxtファイルから、設定を受け継ぐ。
+def Audio_setting_F():
+    # セッティングtxtがない場合、エラーを返す。
+
+    # あった場合、その値を引き継ぐ。
+
+    pass
+
+
 def Audio_cut_F():
 
-    FPS = 30   # FPS設定　# 注意！　Aviutil編集 側のFPSと、プログラムのFPSを一緒にすること！
 
     #wav音声データを無音があるごとに分割していき、testwavフォルダに保存する処理
     print("分割 開始")
@@ -49,11 +59,15 @@ def Audio_cut_F():
 
     # wavデータの分割（無音部分で区切る）処理
         # ※このパラメータを変更することにより、分割される間隔が変わる。
-        # ※TODO 音声ごとに調整する必要があるので、音声によって調整するプログラムを書く？
 
-    min_silence_len=100  #  100 〇〇ms以上無音なら分割
-    silence_thresh=-70   #  -（マイナス）-70dBFS以下で無音と判定（ここの調整で結構かわる？）
-    keep_silence= 3000      #　 分割後3000msは無音を残す　
+    # min_silence_len=100  #  100 〇〇ms以上無音なら分割
+    # silence_thresh=-70   #  -（マイナス）-70dBFS以下で無音と判定（ここの調整で結構かわる？）
+    # keep_silence= 500      #　 分割後3000msは無音を残す　
+    # FPS = 30   # FPS設定　# 注意！　Aviutil編集 側のFPSと、プログラムのFPSを一緒にすること！
+
+    # TODO settingファイルから、分割に関連する値を取得してくる。
+    min_silence_len, silence_thresh, keep_silence, FPS = A006Setting.read_settingtxt_F()
+
     chunks = split_on_silence(sound, min_silence_len, silence_thresh, keep_silence)
 
 
