@@ -89,7 +89,7 @@ def Tenaosi_msg(honyaku_data, genko_data, A, Genko_num):
     print("完了btn")
 
     # リスト入れ替え処理
-    def Irekaesyori＿F():
+    def Irekaesyori_F():
       #問題なければ処理を続行
       global Honyaku_list, Genko_list
 
@@ -171,7 +171,7 @@ def Tenaosi_msg(honyaku_data, genko_data, A, Genko_num):
     else: # 問題なければ確認msgで、書き換え処理
       ret = messagebox.askyesno('確認', 'この内容に書き換えますか？')
       if ret == True:
-        Irekaesyori＿F() #　入れ替え処理
+        Irekaesyori_F() #　入れ替え処理
         tki.destroy()
 
 

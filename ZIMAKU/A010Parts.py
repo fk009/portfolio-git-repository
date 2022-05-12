@@ -29,38 +29,38 @@ def Movie_convert(MVpath,WAVpath):
 
 
 
-# 動画(mp4)から音声ファイル(wav)へ変換 (前の失敗)
-def Movie_convert_2(MVpath,WAVpath):
-    import ffmpeg
-    # 入力
-    stream = ffmpeg.input(MVpath)
-    # 出力
-    stream = ffmpeg.output(stream, WAVpath)
-    # 実行
-    ffmpeg.run(stream)
+# # 動画(mp4)から音声ファイル(wav)へ変換 (前の失敗)
+# def Movie_convert_2(MVpath,WAVpath):
+#     import ffmpeg
+#     # 入力
+#     stream = ffmpeg.input(MVpath)
+#     # 出力
+#     stream = ffmpeg.output(stream, WAVpath)
+#     # 実行
+#     ffmpeg.run(stream)
 
 
-    # そのままだと64bitのwavファイルで読み取れない可能性があるので、32bitへと変換する処理を行う。
-    # 変換するwavファイル拡張子を、mp3へとリネームした後、再びwavファイルへと変換処理
-    mp3path = WAVpath.rstrip('wav') + "mp3"
+#     # そのままだと64bitのwavファイルで読み取れない可能性があるので、32bitへと変換する処理を行う。
+#     # 変換するwavファイル拡張子を、mp3へとリネームした後、再びwavファイルへと変換処理
+#     mp3path = WAVpath.rstrip('wav') + "mp3"
 
-    import os
-    # 存在すれば、mp3ファイルを削除する
-    if os.path.isdir(mp3path):
-        os.remove(mp3path)
-
-
-    import os
-    os.rename(WAVpath, mp3path)
-
-    import subprocess
-    subprocess.call(['ffmpeg', '-i', mp3path, WAVpath])
+#     import os
+#     # 存在すれば、mp3ファイルを削除する
+#     if os.path.isdir(mp3path):
+#         os.remove(mp3path)
 
 
-    import pydub
-    sound = pydub.AudioSegment.from_wav(WAVpath)
-    sound = sound.set_channels(1)
-    sound.export(WAVpath, format="wav")
+#     import os
+#     os.rename(WAVpath, mp3path)
+
+#     import subprocess
+#     subprocess.call(['ffmpeg', '-i', mp3path, WAVpath])
 
 
-    print("wav 完了")
+#     import pydub
+#     sound = pydub.AudioSegment.from_wav(WAVpath)
+#     sound = sound.set_channels(1)
+#     sound.export(WAVpath, format="wav")
+
+
+#     print("wav 完了")
