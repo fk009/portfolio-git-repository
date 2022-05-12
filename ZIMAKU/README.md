@@ -1,32 +1,37 @@
-# �����E���悩��Aviutil�̕ҏW�Ŏg���鎚���𐶐�����V�X�e��
-�����̓����ҏW����Ƃ��A���������Ƃœ��͂��Ă�����Ԃ��Ȃ��܂��B
+# 音声・動画からAviutilの編集で使える字幕を生成するシステム
+自分の動画を編集するとき、字幕を手作業で入力していく手間を省けます。
 
-# �f������
+![](https://github.com/fk009/portfolio-git-repository/blob/main/ZIMAKU/%E3%83%A1%E3%82%A4%E3%83%B3%E7%94%BB%E9%9D%A2.png)
+
+
+
+
+# デモ動画
 https://youtu.be/VFyMmJAuYok
 
 
-## �ڎ�
-- [�ǂ�ȃV�X�e����](#�ǂ�ȃV�X�e����)
+## 目次
+- [どんなシステムか](#どんなシステムか)
 
-- [�g�p���C�u����](#�g�p���C�u����)
+- [使用ライブラリ](#使用ライブラリ)
 
-- [�Ȃ���낤�Ǝv�����̂�](#�Ȃ���낤�Ǝv�����̂�)
-- [�ۑ�E�K�v�Ȃ���](#�ۑ�E�K�v�Ȃ���)
-- [�Q�l����](#�Q�l����)
-
-
-
-# �ǂ�ȃV�X�e����
-- wav ���邢�� mp4 �t�@�C����I������ƁA���̃t�@�C���̉�����|�󂵁A�e�L�X�g�t�@�C���ւƋL�q���Ă����܂��B
-
-- �|�󕶂ɖ�肪�Ȃ���΁A���̃e�L�X�g�t�@�C����AviUtil�̊g���ҏW�ň�����.exo�t�@�C���ւƕϊ��ł��܂��B
-
-- ������肪����Ȃ�A�ǂݏグ�Ɏg�������e�e�L�X�g��p�ӂ��A����Ɣ�r���邱�ƂŎ����œ���ւ���Ƃ��s���܂��B
-
-- ���z���Ń��C�u�������C���X�g�[��������A�R���\�[������A[ python -m ZIMAKU ]�ŃV�X�e�������s�ł��܂��B
+- [なぜ作ろうと思ったのか](#なぜ作ろうと思ったのか)
+- [課題・必要なこと](#課題・必要なこと)
+- [参考資料](#参考資料)
 
 
-# �g�p���C�u���� 
+
+# どんなシステムか
+- wav あるいは mp4 ファイルを選択すると、そのファイルの音声を翻訳し、テキストファイルへと記述していきます。
+
+- 翻訳文に問題がなければ、そのテキストファイルをAviUtilの拡張編集で扱える.exoファイルへと変換できます。
+
+- もし問題があるなら、読み上げに使った原稿テキストを用意し、それと比較することで自動で入れ替え作業を行います。
+
+- 仮想環境でライブラリをインストールした後、コンソールから、[ python -m ZIMAKU ]でシステムを実行できます。
+
+
+# 使用ライブラリ 
 1. Python 3.9
 2. ffmpeg-python==0.2.0
 3. future==0.18.2
@@ -38,52 +43,52 @@ https://youtu.be/VFyMmJAuYok
 9. unidic-lite==1.0.8
 
 
-# �Ȃ���낤�Ǝv�����̂�
-- ����ҏW������Ă����ہA�����Ɏ�����t�����Ƃ���ςł����B
+# なぜ作ろうと思ったのか
+- 動画編集をやっていた際、音声に字幕を付ける作業が大変でした。
  
-- �Ȃ̂œƎ��Ɏ����𓱓����邱�Ƃ��ł���΁A�ҏW�̍�Ƃ��y�ɂȂ�̂ł͂Ȃ����ƍl���A��������߂܂����B
+- なので独自に字幕を導入することができれば、編集の作業が楽になるのではないかと考え、制作を決めました。
 
-- ���ׂĂ݂�ƁAWEB�A�v���œ���Ɏ�����t�����T�[�r�X�����݂��Ă͂��܂����B
+- 調べてみると、WEBアプリで動画に字幕を付けれるサービスが存在してはいました。
  
-- �������̃A�v�����Ɠ���ɒ��ڏ������݂��s�����߁A�����ɐF��t������������A
- �t�H���g��ύX������Ƃ������A�ォ�玚����ύX�����Ƃ��ł��Ȃ��̂ŁA���X�g�����肪�悭����܂���ł����B
+- ただそのアプリだと動画に直接書き込みを行うため、字幕に色を付けたかったり、
+ フォントを変更したりといった、後から字幕を変更する作業ができないので、少々使い勝手がよくありませんでした。
  
-- �����ŁA��������ҏW�\�t�g�A�wAviutl�x�ɑΉ������A�ҏW�\�Ȏ������쐬����A�v���̍쐬�����߂܂����B
+- そこで、無料動画編集ソフト、『Aviutl』に対応した、編集可能な字幕を作成するアプリの作成を決めました。
 
 
-# �ۑ�E�K�v�Ȃ���
+# 課題・必要なこと
 
-1. �͂��߂ɂ��܂����������̐ݒ�����Ȃ��Ă͂Ȃ�Ȃ��̂ŁA�����������ōs����悤�ɂ���B
+1. はじめにうまく音声分割の設定をしなくてはならないので、そこも自動で行えるようにする。
 
-2. �ǂݏグ���e���Ȃ���Ԃł��A�A�v����ŏ����������ł���悤�ɂ���B
+2. 読み上げ原稿がない状態でも、アプリ上で書き換えができるようにする。
 
-3. �����̕����̊Ԋu���AUI�ł��ύX�ł���悤�ɂ���B
+3. 音声の分割の間隔を、UIでも変更できるようにする。
 
-4. UI�ōׂ����ݒ�ύX�Ȃǂ��A�\�ɂ���H
-   - �t�H���g�̕ύX
-   - FPS�̕ύX
-   - �t�F�[�h�C���A�t�F�[�h�A�E�g�̎��Ԏw��ȂǂȂ�
+4. UIで細かい設定変更なども、可能にする？
+   - フォントの変更
+   - FPSの変更
+   - フェードイン、フェードアウトの時間指定などなど
 
-5. �����������A���s���Ȃ̂��A�^�[�~�i���̃��O�����Ȃ��Ƃ킩��Ȃ��̂ŁA�A�v����ł��킩��₷������B
+5. 音声分割中、実行中なのか、ターミナルのログを見ないとわからないので、アプリ上でもわかりやすくする。
 
 
 
-# �Q�l����
-�Q�l�ɂ���Web�y�[�W�Ȃǂł��B
+# 参考資料
+参考にしたWebページなどです。
 
-- �yPython/pydub�zmp3�Awav�t�@�C���̕����i���������ŋ�؂�j  
+- 【Python/pydub】mp3、wavファイルの分割（無音部分で区切る）  
 https://algorithm.joho.info/programming/python/pydub-split-on-silence/
 
-- Python�ŉ�������e�L�X�g�֕ϊ��ySpeechRecognition�z  
+- Pythonで音声からテキストへ変換【SpeechRecognition】  
 https://self-development.info/python%E3%81%A7%E9%9F%B3%E5%A3%B0%E3%81%8B%E3%82%89%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%B8%E5%A4%89%E6%8F%9B%E3%80%90speechrecognition%E3%80%91/
 
-- �ǂ�ꂩ�甇���オ��܂ł̋L�^  Bag of Words�ɂ��ď����Ă݂�  
+- どん底から這い上がるまでの記録  Bag of Wordsについて書いてみる  
 https://www.pytry3g.com/entry/2018/03/21/181514
 
-- �yPython/tkinter�z�E�B�W�F�b�g�̔z�u(pack)   
+- 【Python/tkinter】ウィジェットの配置(pack)   
 https://imagingsolution.net/program/python/tkinter/widget_layout_pack/
 
-- �m���͐����nMeCab���C���X�g�[�����ĕ����������������Ă݂悤  
+- ［文章生成］MeCabをインストールして分かち書きを試してみよう  
 https://atmarkit.itmedia.co.jp/ait/articles/2102/05/news027.html
 
 
