@@ -1,0 +1,8 @@
+-- SQLite
+--insert into Support_Card (name) VALUES('test999999')
+
+
+-- SELECT grade FROM Rarity WHERE 213<R AND R<225 AND 189<G AND G<201 AND 232<B AND B<244
+
+-- SELECT grade FROM Rarity WHERE 208<R AND R<220 AND 185<G AND G<197 AND 233<B AND B<245
+
